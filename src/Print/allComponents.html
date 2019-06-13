@@ -1,0 +1,69 @@
+app.component.html
+
+<app-list [childIceCreamList]="masterList" (clickSender)="editButtonClicked($event)" (sellSender)="sellIceCream($event)"></app-list>
+<app-edit [childSelectedIceCream]="selectedIceCream" (clickedDone)="finishedEditing()"></app-edit>
+<app-new (sendIceCream)="addIceCream($event)"></app-new>
+
+<!-- -------------------------------------------------------------------- -->
+<hr>
+<h2>Add Ice Cream</h2>
+<div>
+  <label>Flavor</label>
+  <input type="text" #newFlavor><br />
+  <label>Type</label>
+  <input type="text" #type><br />
+  <label>Price</label>
+  <input type="number" #price><br />
+  <button (click)="submitForm(newFlavor.value, type.value, price.value); 
+      newFlavor.value=''; type.value=''; price.value='';">Add</button>
+</div>
+
+<!-- -------------------------------------------------------------------- -->
+edit.component.html
+
+<div *ngIf="childSelectedIceCream">
+    <h3>{{childSelectedIceCream.flavor}} </h3>
+    <label>Flavor</label>
+    <input [(ngModel)]="childSelectedIceCream.flavor"><br />
+    <label>Type</label>
+    <input [(ngModel)]="childSelectedIceCream.type"><br />
+    <label>Price</label>
+    <input [(ngModel)]="childSelectedIceCream.price"><br />
+    <label>Rating</label>
+    <input [(ngModel)]="childSelectedIceCream.rating"><br />
+    <button (click)="finishedEditing()">Done</button>
+  </div>
+
+<!-- -------------------------------------------------------------------- -->
+list.component.html
+
+<h1>MT Ice Cream</h1>
+<select (change)='onAmountChange($event.target.value)'>
+  <option value='allIceCream'>All Ice Cream</option>
+  <option value="Less than 50">Replace soon</option>
+</select>
+<select (change)='onTypeChange($event.target.value)'>
+  <option value="allTypes">All types</option>
+  <option value="basic">Basic</option>
+  <option value="deluxe">Deluxe</option>
+  <option value="sorbet">Sorbet</option>
+</select>
+<table>
+  <tr>
+    <th>Flavor</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Rating</th>
+    <th>In store</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let iceCream of childIceCreamList | amount:filterByAmountLeft |type:filterByType">
+    <td>{{ iceCream.flavor }}</td>
+    <td>{{ iceCream.type}}</td>
+    <td>{{ iceCream.price | currency}}</td>
+    <td>{{ iceCream.rating}}</td>
+    <td>{{iceCream.amount}}</td>
+    <td><button (click)="editButtonClicked(iceCream)">Edit</button></td>
+    <td><button (click)="sellButtonClicked(iceCream)">Sell</button></td>
+  </tr>
+</table>
