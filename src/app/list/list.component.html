@@ -1,4 +1,8 @@
 <h1>MT Ice Cream</h1>
+<select (change)='onAmountChange($event.target.value)'>
+  <option value='allIceCream'>All Ice Cream</option>
+  <option value="Less than 50">Replace soon</option>
+</select>
 <table>
   <tr>
     <th>Flavor</th>
@@ -8,10 +12,10 @@
     <th>In store</th>
     <th></th>
   </tr>
-  <tr *ngFor="let iceCream of childIceCreamList">
+  <tr *ngFor="let iceCream of childIceCreamList | amount:filterByAmountLeft">
     <td>{{ iceCream.flavor }}</td>
     <td>{{ iceCream.type}}</td>
-    <td>{{ iceCream.price}}</td>
+    <td>{{ iceCream.price | currency}}</td>
     <td>{{ iceCream.rating}}</td>
     <td>{{iceCream.amount}}</td>
     <td><button (click)="editButtonClicked(iceCream)">Edit</button></td>

@@ -17,5 +17,8 @@ export class ListComponent {
   sellButtonClicked(iceCream: IceCream) {
     this.sellSender.emit(iceCream);
   }
-
+  filterByAmountLeft: string = "allIceCream";
+  onAmountChange(optionFromMenu) {
+    this.filterByAmountLeft = optionFromMenu;
+  }
 }
