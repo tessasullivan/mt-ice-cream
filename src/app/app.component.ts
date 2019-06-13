@@ -28,5 +28,9 @@ export class AppComponent {
   finishedEditing() {
     this.selectedIceCream = null;
   }
-
+  sellIceCream(iceCream: IceCream) {
+    if (iceCream.amount > 0){
+      iceCream.amount-=1;
+    }
+  }
 }

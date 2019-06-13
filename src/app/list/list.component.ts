@@ -9,10 +9,13 @@ export class ListComponent {
 
   @Input() childIceCreamList: IceCream[];
   @Output() clickSender = new EventEmitter();
+  @Output() sellSender = new EventEmitter();
 
   editButtonClicked(iceCreamToEdit: IceCream){
     this.clickSender.emit(iceCreamToEdit);
   }
-
+  sellButtonClicked(iceCream: IceCream) {
+    this.sellSender.emit(iceCream);
+  }
 
 }
