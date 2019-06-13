@@ -1,0 +1,15 @@
+<h1>MT Ice Cream</h1>
+<table>
+  <tr>
+    <th>Flavor</th>
+    <th>Type</th>
+    <th>Price</th>
+    <th>Rating</th>
+  </tr>
+  <tr *ngFor="let iceCream of childList">
+    <td>{{ iceCream.flavor }}</td>
+    <td>{{ iceCream.type}}</td>
+    <td>{{ iceCream.price}}</td>
+    <td>{{ iceCream.rating}}</td>
+  </tr>
+</table>

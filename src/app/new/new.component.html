@@ -1,0 +1,12 @@
+<hr>
+<h2>Add Ice Cream</h2>
+<div>
+  <label>Flavor</label>
+  <input type="text" #newFlavor><br />
+  <label>Type</label>
+  <input type="text" #type><br />
+  <label>Price</label>
+  <input type="number" #price><br />
+  <button (click)="submitForm(newFlavor.value, type.value, price.value); 
+      newFlavor.value=''; type.value=''; price.value='';">Add</button>
+</div>
