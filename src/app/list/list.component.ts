@@ -7,7 +7,12 @@ import { IceCream } from '../models/ice-cream.model';
 })
 export class ListComponent {
 
-  @Input() childList: IceCream[];
+  @Input() childIceCreamList: IceCream[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonClicked(iceCreamToEdit: IceCream){
+    this.clickSender.emit(iceCreamToEdit);
+  }
 
 
 }

@@ -8,6 +8,7 @@ import { IceCream } from './models/ice-cream.model';
 })
 export class AppComponent {
   title = 'app';
+  selectedIceCream = null;
 
   masterList: IceCream [] = [
     new IceCream('vanilla', 'basic', 4.5, 4),
@@ -21,4 +22,11 @@ export class AppComponent {
   addIceCream(newIceCream: IceCream){
     this.masterList.push(newIceCream);
   }
+  editButtonClicked(clickedIceCream) {
+    this.selectedIceCream = clickedIceCream;
+  }
+  finishedEditing() {
+    this.selectedIceCream = null;
+  }
+
 }

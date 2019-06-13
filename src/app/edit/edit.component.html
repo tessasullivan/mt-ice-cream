@@ -1,3 +1,12 @@
-<p>
-  edit works!
-</p>
+<div *ngIf="childSelectedIceCream">
+  <h3>{{childSelectedIceCream.flavor}} </h3>
+  <label>Flavor</label>
+  <input [(ngModel)]="childSelectedIceCream.flavor"><br />
+  <label>Type</label>
+  <input [(ngModel)]="childSelectedIceCream.type"><br />
+  <label>Price</label>
+  <input [(ngModel)]="childSelectedIceCream.price"><br />
+  <label>Rating</label>
+  <input [(ngModel)]="childSelectedIceCream.rating"><br />
+  <button (click)="finishedEditing()">Done</button>
+</div>

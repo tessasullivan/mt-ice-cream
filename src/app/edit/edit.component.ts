@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IceCream } from '../models/ice-cream.model';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditComponent  {
 
-  constructor() { }
+  @Input() childSelectedIceCream: IceCream;
+  @Output() clickedDone = new EventEmitter();
 
-  ngOnInit() {
+  finishedEditing() {
+    this.clickedDone.emit();
   }
-
 }

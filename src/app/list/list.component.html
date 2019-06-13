@@ -5,11 +5,13 @@
     <th>Type</th>
     <th>Price</th>
     <th>Rating</th>
+    <th></th>
   </tr>
-  <tr *ngFor="let iceCream of childList">
+  <tr *ngFor="let iceCream of childIceCreamList">
     <td>{{ iceCream.flavor }}</td>
     <td>{{ iceCream.type}}</td>
     <td>{{ iceCream.price}}</td>
     <td>{{ iceCream.rating}}</td>
+    <td><button (click)="editButtonClicked(iceCream)">Edit</button></td>
   </tr>
 </table>

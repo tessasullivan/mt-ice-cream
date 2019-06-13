@@ -1,2 +1,4 @@
-<app-list [childList]="masterList"></app-list>
+<!-- <app-list [childList]="masterList"></app-list> -->
 <app-new (sendIceCream)="addIceCream($event)"></app-new>
+<app-list [childIceCreamList]="masterList" (clickSender)="editButtonClicked($event)"></app-list>
+<app-edit [childSelectedIceCream]="selectedIceCream" (clickedDone)="finishedEditing()"></app-edit>
