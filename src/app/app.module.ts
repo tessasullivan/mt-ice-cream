@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { NewComponent } from './new/new.component';
 import { AmountPipe } from './amount.pipe';
+import {TypePipe} from './type.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AmountPipe } from './amount.pipe';
     ListComponent,
     EditComponent,
     NewComponent,
-    AmountPipe
+    AmountPipe,
+    TypePipe
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,12 @@
   <option value='allIceCream'>All Ice Cream</option>
   <option value="Less than 50">Replace soon</option>
 </select>
+<select (change)='onTypeChange($event.target.value)'>
+  <option value="allTypes">All ice cream</option>
+  <option value="basic">Basic</option>
+  <option value="deluxe">Deluxe</option>
+  <option value="sorbet">Sorbet</option>
+</select>
 <table>
   <tr>
     <th>Flavor</th>
@@ -12,7 +18,7 @@
     <th>In store</th>
     <th></th>
   </tr>
-  <tr *ngFor="let iceCream of childIceCreamList | amount:filterByAmountLeft">
+  <tr *ngFor="let iceCream of childIceCreamList | amount:filterByAmountLeft |type:filterByType">
     <td>{{ iceCream.flavor }}</td>
     <td>{{ iceCream.type}}</td>
     <td>{{ iceCream.price | currency}}</td>

@@ -21,4 +21,8 @@ export class ListComponent {
   onAmountChange(optionFromMenu) {
     this.filterByAmountLeft = optionFromMenu;
   }
+  filterByType:string = "allTypes";
+  onTypeChange(optionFromMenu) {
+    this.filterByType = optionFromMenu;
+  }
 }
